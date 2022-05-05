@@ -1,0 +1,78 @@
+﻿@model HappyTechCompany.Models.UserApplication
+@using HappyTechCompany.Models;
+@{
+    ViewBag.Title = "ViewFeedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ViewFeedback</h2>
+
+<div>
+    <h4>Feedback Details</h4>
+    @Html.ActionLink("Back To Home", "Index", "Home")
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Title
+        </dt>
+
+        <dd>
+            @Model.SubmitterName -  @((ViewBag.TemplateList as ICollection<Template>).Where(temp=>temp.ID == Model.FeedbackId).FirstOrDefault().Title)
+        </dd>
+        <dt>
+            Description
+        </dt>
+
+        <dd>
+            @((ViewBag.TemplateList as ICollection<Template>).Where(temp=>temp.ID == Model.FeedbackId).FirstOrDefault().Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubmitterName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubmitterName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FeedbackSubmitted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeedbackSubmitted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FeedbackId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeedbackId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FeedbackSubmittedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeedbackSubmittedBy)
+        </dd>
+
+    </dl>
+</div>
